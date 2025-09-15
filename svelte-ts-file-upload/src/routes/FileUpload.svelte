@@ -48,7 +48,7 @@
     try {
       const form = new FormData();
       // add broker routing fields (service/operation/params) as form fields
-      form.append("service", "fileService");      // adjust service name
+      form.append("service", "uploadService");      // adjust service name
       form.append("operation", "processFile");     // adjust operation name
       form.append("params", JSON.stringify({}));  // optional params JSON
       form.append("file", file, file.name);
