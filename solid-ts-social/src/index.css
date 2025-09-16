@@ -103,7 +103,7 @@ main {
   padding: 10px 0; /* 10px top/bottom padding */
   /* Full viewport height minus header (41px), footer (41px), and top/bottom padding (20px) */
   box-sizing: border-box; /* Include padding in height calculation */
-  min-height: calc(100vh - 82px);
+  min-height: calc(100vh - 102px);
   display: flex;
   gap: 20px;
   align-items: flex-start; /* Align items to the top */
