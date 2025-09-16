@@ -26,6 +26,9 @@ const App: Component = () => {
           <p>Right navigation content goes here</p>
         </nav>
       </main>
+      <footer class="footer">
+        &copy; 2024 SolidJS Social
+      </footer>
     </>
   );
 };
