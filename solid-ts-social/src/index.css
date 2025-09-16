@@ -34,9 +34,9 @@ body {
   font-family: system-ui, Arial;
   /* background-color: #ffffff; */
   padding: 20px;
-  /* Add padding-top to body to prevent content from being hidden by the fixed toolbar */
-  padding-top: 80px;
-  /* Add padding-bottom to prevent content from being hidden by the fixed footer */
+  /* Add padding-top to body to prevent content from being hidden by the fixed toolbar.
+     Value is toolbar height (41px) + desired space (10px) */
+  padding-top: 51px;
   padding-bottom: 60px;
 }
 pre {
@@ -95,6 +95,36 @@ pre {
 
 main {
   padding: 20px;
+}
+
+main {
+  /* Add margin-top to create space below the fixed toolbar */
+  margin-top: 0;
+  padding: 10px 0; /* 10px top/bottom padding */
+  /* Full viewport height minus header (41px), footer (41px), and top/bottom padding (20px) */
+  box-sizing: border-box; /* Include padding in height calculation */
+  min-height: calc(100vh - 82px);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.left-nav, .right-nav {
+  flex: 0 0 180px; /* Do not grow or shrink, fixed width */
+  height: 70%;
+  background-color: #f0f9ff; /* Light blue */
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #e0f2fe;
+}
+
+.content-area {
+  flex: 1; /* Grow to take available space */
+  align-self: stretch; /* Allow this item to stretch to the container's height */
+  background-color: #fdf4ff; /* Light purple */
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #fce7f3;
 }
 
 h1 {
