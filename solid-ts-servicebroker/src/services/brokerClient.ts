@@ -1,4 +1,4 @@
-const BASE_URL = "/api/broker/requestService";
+const BASE_URL = "/api/broker/submitRequest";
 
 // Shared interfaces for the Service Broker API
 

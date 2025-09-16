@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="assets/nodejs.svg" />
@@ -8,7 +7,6 @@
   <title>Service Broker Demo (JS)</title>
 </head>
 <script type="module" src="./index.ts"></script>
-
 <body>
   <div class="toolbar">
     <div class="toolbar-title">Service Broker Demo</div>
@@ -19,21 +17,8 @@
     </div>
   </div>
 
-  <main id="main-content">
-    <nav class="left-nav">
-      <p>Left navigation content goes here</p>
-    </nav>
-    <div class="content-area">
-      <p>Welcome to the Service Broker Demo application. This is the home page.</p>
-    </div>
-    <nav class="right-nav">
-      <p>Right navigation content goes here</p>
-    </nav>
-  </main>
-
   <footer class="footer">
     &copy; 2024 Service Broker Demo
   </footer>
 </body>
-
 </html>

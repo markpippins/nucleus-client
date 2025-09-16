@@ -2,7 +2,7 @@
 
 // A minimal function to call your Spring Boot Service Broker
 async function callBroker(client, service, operation, params) {
-  const response = await fetch("http://localhost:8080/api/broker/requestService", {
+  const response = await fetch("http://localhost:8080/api/broker/submitRequest", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

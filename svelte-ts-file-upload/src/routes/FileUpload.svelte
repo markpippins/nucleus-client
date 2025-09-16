@@ -7,8 +7,8 @@
   let uploading = false;
 
   // Adjust to your broker/upload endpoint
-  // Example endpoints we've used: "/service/requestService" or "/api/broker/requestService"
-  const UPLOAD_URL = "/api/upload/requestServiceWithFile";
+  // Example endpoints we've used: "/service/submitRequest" or "/api/broker/submitRequest"
+  const UPLOAD_URL = "/api/upload/submitRequestWithFile";
 
   function handleDragOver(e: DragEvent) {
     e.preventDefault();
