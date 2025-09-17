@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 4, 10, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -113,7 +113,7 @@ main {
   /* flex: 0 0 180px; Do not grow or shrink, fixed width */
   display: flex;
   height: 70%;
-  background-color: #052c46; /* Light blue */
+  background-color: #86bbdf; /* Light blue */
   padding: 15px;
   border-radius: 6px;
   border: 1px solid #e0f2fe;

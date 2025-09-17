@@ -19,10 +19,10 @@ export default function LogoutButton() {
     } else {
       console.warn('Logout failed:', response?.errors);
     }
-
+    
+    setActiveUser(undefined);
     sessionStorage.clear();
     sessionStorage.setItem('social.media.user.loggedIn', 'false');
-    setActiveUser(undefined);
   };
 
   return (
