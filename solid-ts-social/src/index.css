@@ -112,7 +112,7 @@ main {
 .left-nav, .right-nav {
   flex: 0 0 180px; /* Do not grow or shrink, fixed width */
   height: 70%;
-  background-color: #f0f9ff; /* Light blue */
+  background-color: #052c46; /* Light blue */
   padding: 15px;
   border-radius: 6px;
   border: 1px solid #e0f2fe;
