@@ -1,3 +1,4 @@
+import { activeUser, setActiveUser } from './../stores/user-store';
 import { type User } from "../models/user";
 
 type UserCallback = (user: User) => void;
@@ -5,14 +6,13 @@ type UserCallback = (user: User) => void;
 export class UserDirectService {
   private USERS: string;
   private users: Map<string, User> = new Map();
-  public activeUser: User | undefined;
   private userLoginListeners: UserCallback[] = [];
 
   constructor(hostURL: string) {
     console.log('UserDirectService is constructed');
     this.USERS = `${hostURL}/api/users`;
 
-    if (!this.activeUser && this.isLoggedIn()) {
+    if (!activeUser() && this.isLoggedIn()) {
       const id = sessionStorage.getItem('social.media.user.user.id');
       const alias = sessionStorage.getItem('social.media.user.user.alias');
       const name = sessionStorage.getItem('social.media.user.user.name');
@@ -20,13 +20,13 @@ export class UserDirectService {
       const email = sessionStorage.getItem('social.media.user.user.email');
 
       if (id && alias && name && avatarUrl && email) {
-        this.activeUser = {
+        setActiveUser({
           id: +id,
           alias,
           name,
           email,
           avatarUrl
-        };
+        });
       } else {
         this.logout();
       }
@@ -80,7 +80,7 @@ export class UserDirectService {
   }
 
   setUser(user: User) {
-    this.activeUser = user;
+    setActiveUser(user);
 
     sessionStorage.setItem('social.media.user.loggedIn', 'true');
     sessionStorage.setItem('social.media.user.user.id', user.id.toString());
@@ -93,7 +93,7 @@ export class UserDirectService {
   }
 
   logout() {
-    this.activeUser = undefined;
+    setActiveUser(undefined);
     sessionStorage.clear();
     sessionStorage.setItem('social.media.user.loggedIn', 'false');
   }

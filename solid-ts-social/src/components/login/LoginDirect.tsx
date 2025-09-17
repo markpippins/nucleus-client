@@ -1,28 +1,20 @@
 // LoginComponent.tsx
-import { createSignal, onMount, Show } from 'solid-js';
+import { createSignal, Show } from 'solid-js';
 import { UserDirectService } from "../../services/user-direct";
-import type { User } from '../../models/user';
+import { activeUser } from '../../stores/user-store';
 
 const userService = new UserDirectService('http://localhost:8080');
 
 export default function LoginDirect() {
   const [alias, setAlias] = createSignal('');
   const [password, setPassword] = createSignal('');
-  const [loggedInUser, setLoggedInUser] = createSignal<User | undefined>();
-
-  onMount(() => {
-    if (userService.isLoggedIn()) {
-      const alias = userService.activeUserAlias();
-      if (alias) {
-        userService.getUserByAlias(alias).then((user: any) => setLoggedInUser(user));
-      }
-    }
-  });
 
   const handleLogin = async () => {
     try {
       await userService.login(alias());
-      setLoggedInUser(userService.activeUser);
+      // The activeUser signal is set inside the service,
+      // so we don't need to set it here.
+      // setLoggedInUser(activeUser());
     } catch (err) {
       console.error('Login failed:', err);
       alert('Login failed. Please check your credentials.');
@@ -31,7 +23,7 @@ export default function LoginDirect() {
 
   return (
     <div class="login-container">
-      <Show when={!loggedInUser()}>
+      <Show when={!activeUser()}>
         <input
           type="text"
           placeholder="Alias"
@@ -47,8 +39,8 @@ export default function LoginDirect() {
         <button onClick={handleLogin}>Login</button>
       </Show>
 
-      <Show when={loggedInUser()}>
-        <span>Welcome, {loggedInUser()?.alias}!</span>
+      <Show when={activeUser()}>
+        <span>Welcome, {activeUser()?.alias}!</span>
       </Show>
     </div>
   );
