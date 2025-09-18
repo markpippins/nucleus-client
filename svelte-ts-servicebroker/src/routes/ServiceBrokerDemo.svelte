@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { callBroker, type ServiceResponse } from "../services/brokerClient";
+  import { submitRequest, type ServiceResponse } from "../services/brokerClient";
 
   let userId = "";
   let createName = "";
@@ -17,7 +17,7 @@
     loading = true;
     error = null;
     try {
-      response = await callBroker("svelte", "userService", "getById", {
+      response = await submitRequest("svelte", "userService", "getById", {
         id: Number(userId),
       });
     } catch (err) {
@@ -35,7 +35,7 @@
     loading = true;
     error = null;
     try {
-      response = await callBroker("svelte", "userService", "create", {
+      response = await submitRequest("svelte", "userService", "create", {
         user: { name: createName, email: createEmail },
       });
     } catch (err) {

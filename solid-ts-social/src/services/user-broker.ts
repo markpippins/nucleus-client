@@ -1,4 +1,4 @@
-import { callBroker } from './broker-client';
+import { submitRequest } from './broker-client';
 import type { User } from '../models/user';
 
 export class UserBrokerService {
@@ -8,7 +8,7 @@ export class UserBrokerService {
     constructor(private clientId: string) { }
 
     async getUserByAlias(alias: string): Promise<User | null> {
-        const response = await callBroker<User>(
+        const response = await submitRequest<User>(
             this.clientId,
             'userService',
             'getUserByAlias',
@@ -28,7 +28,7 @@ export class UserBrokerService {
     async login(alias: string, password: string): Promise<boolean> {
         console.log(`Broker login(${alias}) called`);
 
-        const response = await callBroker<User>(
+        const response = await submitRequest<User>(
             this.clientId,
             'userService',
             'login',

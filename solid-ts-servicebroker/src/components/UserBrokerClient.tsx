@@ -1,5 +1,5 @@
 import { createSignal, Show } from "solid-js";
-import { callBroker, type ServiceResponse } from "../services/brokerClient";
+import { submitRequest, type ServiceResponse } from "../services/brokerClient";
 
 interface User {
   id: number;
@@ -22,7 +22,7 @@ export default function UserBrokerClient() {
     }
     setLoading(true);
     setError(null);
-    const res = await callBroker<User>("solid", "userService", "getById", {
+    const res = await submitRequest<User>("solid", "userService", "getById", {
       id: Number(userId()),
     });
     setResponse(res);
@@ -36,7 +36,7 @@ export default function UserBrokerClient() {
     }
     setLoading(true);
     setError(null);
-    const res = await callBroker<User>("solid", "userService", "create", {
+    const res = await submitRequest<User>("solid", "userService", "create", {
       user: { name: createName(), email: createEmail() },
     });
     setResponse(res);

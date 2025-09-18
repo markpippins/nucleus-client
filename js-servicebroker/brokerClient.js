@@ -1,7 +1,7 @@
 // brokerClient.js
 
 // A minimal function to call your Spring Boot Service Broker
-async function callBroker(client, service, operation, params) {
+async function submitRequest(client, service, operation, params) {
   const response = await fetch("http://localhost:8080/api/broker/submitRequest", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -22,7 +22,7 @@ async function callBroker(client, service, operation, params) {
 // Example 1: Fetch a user
 async function demoGetUser(userId) {
   try {
-    const res = await callBroker("js", "userService", "getById", { id: userId });
+    const res = await submitRequest("js", "userService", "getById", { id: userId });
     console.log("Get user response:", res);
   } catch (err) {
     console.error("Error fetching user:", err.message);
@@ -32,7 +32,7 @@ async function demoGetUser(userId) {
 // Example 2: Create a new user
 async function demoCreateUser(name, email) {
   try {
-    const res = await callBroker("js", "userService", "create", {
+    const res = await submitRequest("js", "userService", "create", {
       user: { name, email }
     });
     console.log("Create user response:", res);

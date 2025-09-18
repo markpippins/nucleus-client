@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { callBroker, type ServiceResponse } from "../services/brokerClient";
+import { submitRequest, type ServiceResponse } from "../services/brokerClient";
 
 export interface User {
   id: number;
@@ -23,7 +23,7 @@ export default function UserBrokerClient() {
     }
     setLoading(true);
     setError(null);
-    const res = await callBroker<User>("react", "userService", "getById", {
+    const res = await submitRequest<User>("react", "userService", "getById", {
       id: Number(userId),
     });
     setResponse(res);
@@ -37,7 +37,7 @@ export default function UserBrokerClient() {
     }
     setLoading(true);
     setError(null);
-    const res = await callBroker<User>("react", "userService", "create", {
+    const res = await submitRequest<User>("react", "userService", "create", {
       user: { name: createName, email: createEmail },
     });
     setResponse(res);

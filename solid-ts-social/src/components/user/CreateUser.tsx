@@ -1,6 +1,6 @@
 // CreateUserComponent.tsx
 import { createSignal } from 'solid-js';
-import { callBroker } from "../../services/broker-client";
+import { submitRequest } from "../../services/broker-client";
 
 export default function CreateUser() {
   const [alias, setAlias] = createSignal('');
@@ -13,7 +13,7 @@ export default function CreateUser() {
     setStatus('idle');
     setErrorMessage('');
 
-    const response = await callBroker(
+    const response = await submitRequest(
       'client-create-user',
       'userService',
       'save',

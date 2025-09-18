@@ -17,7 +17,7 @@ export interface ServiceResponse<T = unknown> {
   ts: string;
 }
 
-export async function callBroker<T>(
+export async function submitRequest<T>(
   client: string,
   service: string,
   operation: string,

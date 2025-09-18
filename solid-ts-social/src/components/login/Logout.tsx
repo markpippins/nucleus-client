@@ -1,13 +1,13 @@
 import { Show } from 'solid-js';
 import { activeUser, setActiveUser } from '../../stores/user-store';
-import { callBroker } from '../../services/broker-client';
+import { submitRequest } from '../../services/broker-client';
 
 export default function LogoutButton() {
   const handleLogout = async () => {
     const user = activeUser();
     if (!user) return;
 
-    const response = await callBroker(
+    const response = await submitRequest(
       'client-logout',
       'userService',
       'logoff',
