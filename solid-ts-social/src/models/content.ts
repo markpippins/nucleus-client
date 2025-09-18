@@ -1,4 +1,4 @@
-import { Reaction } from './reaction';
+import type { Reaction } from './reaction';
 
 export interface Content {
   id: number;

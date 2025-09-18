@@ -1,6 +1,4 @@
-import type { JSX } from "solid-js";
-
-export function Dropzone(props: {
+export function Dropzone(props: Readonly<{
     ref?: HTMLDivElement;
     file: File | null;
     isDragging: boolean;
@@ -10,14 +8,14 @@ export function Dropzone(props: {
     onClick: () => void;
     onFileSelect: (e: Event) => void;
     fileInputRef: (el: HTMLInputElement) => void;
-}) {
+}>) {
     return (
         <div
             ref={props.ref}
             classList={{
-                "border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer transition-colors bg-black": true,
+                "file-upload-dropzone border-2 border-dashed rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer transition-colors bg-black": true,
                 "border-blue-400": props.isDragging,
-                "border-gray-600": !props.isDragging,
+                "border-gray-400": !props.isDragging,
             }}
             onDragOver={props.onDragOver}
             onDragLeave={props.onDragLeave}
@@ -42,8 +40,7 @@ export function Dropzone(props: {
                 </>
             ) : (
                 <>
-                    <p class="text-base font-semibold text-black">Drag & drop a file here</p>
-                    <p class="text-xs text-black">or click to browse</p>
+                    <span class="text-base font-semibold text-black">Drag & drop a file here or click to browse</span>
                 </>
             )}
         </div>

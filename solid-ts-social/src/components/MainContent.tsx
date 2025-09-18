@@ -1,7 +1,8 @@
 import { Show } from 'solid-js';
 import CreateUser from "./user/CreateUser";
 import { activeUser } from './../stores/user-store';
-import FileUpload2 from './uploads/FileUpload2';
+import FileUpload from './uploads/FileUpload';
+import MultiFileUploadComponent from './uploads/MultiFileUpload';
 
 export default function MainContent() {
 
@@ -10,9 +11,9 @@ export default function MainContent() {
       <Show when={!activeUser()}>
         <CreateUser />
       </Show>
-
       <Show when={activeUser()}>
-        <FileUpload2 />
+        {/* <FileUpload /> */}
+        <MultiFileUploadComponent />
       </Show>
         {/* <div>
           <h2>Welcome, {activeUser()?.alias}!</h2>

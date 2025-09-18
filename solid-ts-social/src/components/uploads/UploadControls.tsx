@@ -5,7 +5,7 @@ export function UploadControls(props: {
   onClear: () => void;
 }) {
   return (
-    <div class="mt-4 flex items-center gap-3">
+    <div class="file-upload-controls mt-4 flex items-center gap-3">
       <button
         class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition disabled:opacity-50"
         onClick={props.onUpload}

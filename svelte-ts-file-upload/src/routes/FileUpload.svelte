@@ -51,6 +51,7 @@
       form.append("service", "uploadService");      // adjust service name
       form.append("operation", "processFile");     // adjust operation name
       form.append("params", JSON.stringify({}));  // optional params JSON
+      form.append("requestId", crypto.randomUUID()); // unique request ID
       form.append("file", file, file.name);
 
       const res = await fetch(UPLOAD_URL, {
