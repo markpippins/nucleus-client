@@ -13,3 +13,8 @@ svelte-ts-file-upload/.vscode/extensions.json
 svelte-ts-servicebroker/.vscode/extensions.json
 svelte-ts-servicebroker/.vscode/extensions.json
 solid-ts-social/package-lock.json
+vaadin-client/.mvn/wrapper/maven-wrapper.properties
+vaadin-client/.gitattributes
+vaadin-client/.gitignore
+vaadin-client/mvnw.cmd
+vaadin-client/mvnw
